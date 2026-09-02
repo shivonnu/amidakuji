@@ -1,0 +1,185 @@
+:root {
+  --bg: #0f1419;
+  --panel: #1a2330;
+  --ink: #f4efe6;
+  --muted: #b7c0cc;
+  --line: #d8c3a5;
+  --accent: #e85d4c;
+  --gold: #f0c14b;
+  --ok: #7dcea0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #243044 0%, transparent 55%),
+    radial-gradient(900px 500px at 110% 10%, #3a1f1a 0%, transparent 50%),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.hero h1 {
+  margin: 4px 0 12px;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing: 0.08em;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--gold);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.lede {
+  margin: 0 0 28px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 42em;
+}
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  background: color-mix(in srgb, var(--panel) 88%, black);
+  border: 1px solid #2c3a4d;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 88px;
+}
+
+.field.grow {
+  flex: 1 1 180px;
+}
+
+.field label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+input {
+  background: #0d1218;
+  color: var(--ink);
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font: inherit;
+  cursor: pointer;
+  background: #2b394c;
+  color: var(--ink);
+}
+
+button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+.status {
+  min-height: 1.4em;
+  margin: 16px 0 8px;
+  color: var(--gold);
+}
+
+.board-wrap {
+  background: linear-gradient(180deg, #161e29, #10161d);
+  border: 1px solid #2c3a4d;
+  border-radius: 20px;
+  padding: 16px 8px 20px;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-around;
+  gap: 4px;
+}
+
+.labels button,
+.labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  padding: 8px 4px;
+}
+
+.labels.top button {
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.labels.top button:hover,
+.labels.top button.active {
+  background: #2a1b18;
+  color: var(--gold);
+}
+
+.labels.bottom span.hit {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.results {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.results li {
+  background: #151c25;
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: var(--muted);
+}
+
+.results strong {
+  color: var(--ink);
+}
