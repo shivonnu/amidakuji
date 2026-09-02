@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>あみだくじ</title>
+  <meta name="description" content="ブラウザで遊べるあみだくじ。線をたどって当たりを決めよう。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎋</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="kicker">Ghost Legs</p>
+      <h1>あみだくじ</h1>
+      <p class="lede">縦線と横線をたどって、だれがどの結果になるかを決めます。スタートを押すと、その一本の道が光ります。</p>
+    </header>
+
+    <section class="panel" aria-label="設定">
+      <div class="field">
+        <label for="count">人数</label>
+        <input id="count" type="number" min="2" max="10" value="5" />
+      </div>
+      <div class="field grow">
+        <label for="names">名前（カンマ区切り）</label>
+        <input id="names" type="text" value="A, B, C, D, E" autocomplete="off" />
+      </div>
+      <div class="field grow">
+        <label for="prizes">結果（カンマ区切り）</label>
+        <input id="prizes" type="text" value="1等, 2等, 3等, 残念, もう一回" autocomplete="off" />
+      </div>
+      <div class="actions">
+        <button type="button" id="generate" class="primary">あみだを作る</button>
+        <button type="button" id="reveal-all">全部たどる</button>
+      </div>
+    </section>
+
+    <p id="status" class="status" role="status"></p>
+
+    <div class="board-wrap">
+      <div class="labels top" id="start-labels"></div>
+      <canvas id="board" width="720" height="480" aria-label="あみだくじの盤面"></canvas>
+      <div class="labels bottom" id="end-labels"></div>
+    </div>
+
+    <ol class="results" id="results" aria-live="polite"></ol>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
